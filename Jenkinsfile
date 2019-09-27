@@ -3,7 +3,7 @@ timestamps {
 node () {
 
     stage ('triggerJob - Checkout') {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], poll: true, userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/alamscode/shared-library-jenkins']]]) 
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], git poll: true, userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/alamscode/shared-library-jenkins']]]) 
     }
     
     stage ('triggerJob - Build') {
