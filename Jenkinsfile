@@ -5,6 +5,7 @@ node () {
     stage ('triggerJob - Checkout') {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/alamscode/shared-library-jenkins']]]) 
     }
+        properties([ pipelineTriggers([cron('H/30 * * * *')])])
     
     stage ('triggerJob - Build') {
         sh """ 
