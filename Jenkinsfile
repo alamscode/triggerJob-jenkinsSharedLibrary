@@ -13,13 +13,14 @@ node () {
     }
         
     stage ('post-builds-parallel')  {  
-        parallel test: {
+        parallel build1: {
             stage ('post-build') {
                 build job: 'sharedLibraryJob/master'
-            }
-            
+            },
+            build2: {
             stage ('post-build') {
                 build job: 'sharedLibraryJob/dev'
+                }
             }
         }
     }
