@@ -3,7 +3,6 @@ timestamps {
 node () {
 
     stage ('triggerJob - Checkout') {
-        git poll: true, url: 'https://github.com/alamscode/shared-library-jenkins'
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/alamscode/shared-library-jenkins']]]) 
     }
     
